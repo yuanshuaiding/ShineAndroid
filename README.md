@@ -15,3 +15,5 @@ public enum MaskAngle {
 
 # 效果图
 ![](images/screen.gif)
+
+### 该效果参考了 facebook 的开源项目: [shimmer-android](https://github.com/facebook/shimmer-android)
