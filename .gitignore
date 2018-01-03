@@ -1,9 +1,13 @@
 *.iml
 .gradle
 /local.properties
-/.idea/workspace.xml
-/.idea/libraries
 .DS_Store
 /build
 /captures
 .externalNativeBuild
+.idea/
+app/libs/
+gradlew
+gradlew.bat
+shine_android/libs/
+shine_android/src/main/res/drawable/
