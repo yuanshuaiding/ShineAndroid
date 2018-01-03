@@ -1,6 +1,10 @@
 # ShineAndroid
 一个用于Android的带闪光效果的布局容器,放入该容器内的视图可以开启或关闭闪光效果
+# 快速集成
 
+```
+compile 'com.eric.android.view:shine_android:1.0.1'
+```
 # 支持的5种闪光角度
 
 ```
