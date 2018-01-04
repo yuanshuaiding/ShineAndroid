@@ -24,7 +24,7 @@ import android.widget.FrameLayout;
 public class ShineFrameLayout extends FrameLayout {
 
     private static final String TAG = "ShineFrameLayout";
-    private static final PorterDuffXfermode DST_IN_PORTER_DUFF_XFERMODE = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
+    private static final PorterDuffXfermode DST_IN_PORTER_DUFF_XFERMODE = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
 
     // enum specifying the shape of the highlight mask applied to the contained view
     public enum MaskShape {
