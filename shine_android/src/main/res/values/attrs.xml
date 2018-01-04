@@ -13,7 +13,6 @@
             <enum name="cw_0" value="0" />
             <enum name="cw_90" value="90" />
             <enum name="cw_180" value="180" />
-            <enum name="cw_210" value="210" />
             <enum name="cw_270" value="270" />
         </attr>
         <attr name="dropoff" format="float" />

@@ -12,8 +12,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final ShineFrameLayout fl_shine = findViewById(R.id.fl_shine);
-        fl_shine.setTilt(30);
-        fl_shine.setAngle(ShineFrameLayout.MaskAngle.CW_210);
+        fl_shine.setTilt(110);
+        fl_shine.setAngle(ShineFrameLayout.MaskAngle.CW_180);
         fl_shine.startShimmerAnimation();
         fl_shine.setOnClickListener(v -> {
             if (fl_shine.isAnimationStarted())

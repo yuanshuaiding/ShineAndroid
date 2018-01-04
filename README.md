@@ -5,16 +5,15 @@
 ```
 compile 'com.eric.android.view:shine_android:1.0.1'
 ```
-# 支持的5种闪光角度
+# 支持的4种闪光角度
 
 ```
-public enum MaskAngle {
-        CW_0, // left top to right bottom
+ public enum MaskAngle {
+        CW_0, // left to right
         CW_90, // top to bottom
-        CW_180, // bottom right to top left
-        CW_210,// top right to bottom left
+        CW_180, // right to left
         CW_270, // bottom to top
-}
+    }
 ```
 
 # 效果图

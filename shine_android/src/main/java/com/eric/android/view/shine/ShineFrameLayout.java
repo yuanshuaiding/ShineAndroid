@@ -34,10 +34,9 @@ public class ShineFrameLayout extends FrameLayout {
 
     // enum controlling the angle of the highlight mask animation
     public enum MaskAngle {
-        CW_0, // left top to right bottom
+        CW_0, // left to right
         CW_90, // top to bottom
-        CW_180, // bottom right to top left
-        CW_210,// top right to bottom left
+        CW_180, // right to left
         CW_270, // bottom to top
     }
 
@@ -191,9 +190,6 @@ public class ShineFrameLayout extends FrameLayout {
                             break;
                         case 180:
                             mMask.angle = MaskAngle.CW_180;
-                            break;
-                        case 210:
-                            mMask.angle = MaskAngle.CW_210;
                             break;
                         case 270:
                             mMask.angle = MaskAngle.CW_270;
@@ -442,6 +438,7 @@ public class ShineFrameLayout extends FrameLayout {
      * For a linear mask, the distance is relative to the center towards the edges. For a radial mask, the distance is
      * relative to the center towards the circumference. So a dropoff of 0.5 on a linear mask will create a band that
      * is half the size of the corresponding edge (depending on the {@link MaskAngle}), centered in the layout.
+     * @param dropoff the value of dropoff
      */
     public void setDropoff(float dropoff) {
         mMask.dropoff = dropoff;
@@ -796,12 +793,6 @@ public class ShineFrameLayout extends FrameLayout {
                         x2 = 0;
                         y2 = 0;
                         break;
-                    case CW_210:
-                        x1 = 0;
-                        y1 = 0;
-                        x2 = 0;
-                        y2 = height;
-                        break;
                     case CW_270:
                         x1 = 0;
                         y1 = height;
@@ -864,9 +855,6 @@ public class ShineFrameLayout extends FrameLayout {
                     case CW_180:
                         mMaskTranslation.set(width, 0, -width, 0);
                         break;
-                    case CW_210:
-                        mMaskTranslation.set(width, 0, -width, 0);
-                        break;
                     case CW_270:
                         mMaskTranslation.set(0, height, 0, -height);
                         break;
@@ -894,6 +882,7 @@ public class ShineFrameLayout extends FrameLayout {
      *
      * @param width  width of the bitmap
      * @param height height of the bitmap
+     * @return bitmap with sign width and height
      */
     protected static Bitmap createBitmapAndGcIfNecessary(int width, int height) {
         try {
