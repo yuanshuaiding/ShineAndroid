@@ -18,10 +18,25 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello Shine View!"
             android:background="@android:color/white"
+            android:text="Hello Shine View!"
             android:textColor="@android:color/black" />
     </com.eric.android.view.shine.ShineFrameLayout>
 
-
+    <com.eric.android.view.shineandroid.LinearGradientView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@android:color/white"
+            android:text="my shine frame"/>
+    </com.eric.android.view.shineandroid.LinearGradientView>
 </android.support.constraint.ConstraintLayout>

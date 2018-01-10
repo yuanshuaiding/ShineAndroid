@@ -438,6 +438,7 @@ public class ShineFrameLayout extends FrameLayout {
      * For a linear mask, the distance is relative to the center towards the edges. For a radial mask, the distance is
      * relative to the center towards the circumference. So a dropoff of 0.5 on a linear mask will create a band that
      * is half the size of the corresponding edge (depending on the {@link MaskAngle}), centered in the layout.
+     *
      * @param dropoff the value of dropoff
      */
     public void setDropoff(float dropoff) {
