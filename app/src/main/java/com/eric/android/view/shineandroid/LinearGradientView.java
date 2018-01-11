@@ -6,6 +6,8 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.ViewTreeObserver;
@@ -43,16 +45,24 @@ public class LinearGradientView extends FrameLayout {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mPaint.setColor(Color.parseColor("#bbffffff"));
+        mPaint.setColor(Color.parseColor("#ffffffff"));
         if (mMaskBitmap == null && (w > 0 && h > 0)) {
             mMaskBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
-            maskCanvas=new Canvas(mMaskBitmap);
-            maskCanvas.drawBitmap(mMaskBitmap,0,0,null);
-            maskCanvas.save();
-            maskCanvas.rotate(-40, getWidth() / 2, getHeight() / 2);
-            maskCanvas.drawRect(getWidth()/3, -100, getWidth()/3+20, getHeight()+100, mPaint);
-            maskCanvas.drawRect(getWidth()/3+50, -100, getWidth()/3+60, getHeight()+100, mPaint);
-            maskCanvas.restore();
+            Bitmap temp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+            maskCanvas = new Canvas(mMaskBitmap);
+            Canvas tempCanvas = new Canvas(temp);
+            //mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+            tempCanvas.save();
+            tempCanvas.rotate(-40, w / 2, h / 2);
+            int padding = (int) (Math.sqrt(2) * Math.max(w, h)) / 2;
+            Paint tempPaint=new Paint();
+            tempPaint.setColor(Color.parseColor("#bbffffff"));
+            tempCanvas.drawRect(w/2, -padding, w/2+20, h + padding, tempPaint);
+            tempCanvas.drawRect(w/2+40, -padding, w/2+50, h + padding, tempPaint);
+//            tempCanvas.drawRect(w/2, -padding, 40, h + padding, tempPaint);
+            tempCanvas.restore();
+            maskCanvas.drawBitmap(temp,0,0,mPaint);
+            mPaint.setXfermode(null);
         }
         x0ff = -w;
     }
@@ -78,7 +88,9 @@ public class LinearGradientView extends FrameLayout {
         }
         super.onDetachedFromWindow();
     }
+
     float x0ff;
+
     @Override
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
@@ -86,7 +98,7 @@ public class LinearGradientView extends FrameLayout {
     }
 
     protected void drawShineMask(Canvas canvas) {
-        canvas.drawBitmap(mMaskBitmap,-x0ff,0,null);
+        canvas.drawBitmap(mMaskBitmap, -x0ff, 0, null);
     }
 
     public void startAnim() {
