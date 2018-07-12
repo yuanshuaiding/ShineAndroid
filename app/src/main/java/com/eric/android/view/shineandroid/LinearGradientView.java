@@ -56,9 +56,9 @@ public class LinearGradientView extends FrameLayout {
             tempCanvas.rotate(-40, w / 2, h / 2);
             int padding = (int) (Math.sqrt(2) * Math.max(w, h)) / 2;
             Paint tempPaint=new Paint();
-            tempPaint.setColor(Color.parseColor("#bbffffff"));
+            tempPaint.setColor(Color.parseColor("#aaffd000"));
             tempCanvas.drawRect(w/2, -padding, w/2+20, h + padding, tempPaint);
-            tempCanvas.drawRect(w/2+40, -padding, w/2+50, h + padding, tempPaint);
+            tempCanvas.drawRect(w/2+35, -padding, w/2+40, h + padding, tempPaint);
 //            tempCanvas.drawRect(w/2, -padding, 40, h + padding, tempPaint);
             tempCanvas.restore();
             maskCanvas.drawBitmap(temp,0,0,mPaint);
